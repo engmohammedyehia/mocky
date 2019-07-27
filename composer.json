@@ -8,6 +8,9 @@
             "email": "engmohammedyehia@hotmail.com"
         }
     ],
+    "autoload": {
+      "App\\": "src/"
+    },
     "require": {},
     "require-dev": {
         "eaglewu/swoole-ide-helper": "dev-master",
