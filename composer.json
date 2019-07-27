@@ -11,6 +11,7 @@
     "require": {},
     "require-dev": {
         "eaglewu/swoole-ide-helper": "dev-master",
-        "phpunit/phpunit": "^8.2.5"
+        "phpunit/phpunit": "^8.2.5",
+        "squizlabs/php_codesniffer": "^3.4"
     }
 }
