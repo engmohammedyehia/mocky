@@ -1,20 +1,22 @@
 {
-    "name": "firefoxegy/mock-server",
-    "description": "A PHP implemenation of a Mock Server using Swoole",
-    "type": "library",
-    "authors": [
-        {
-            "name": "Mohammed Yehia",
-            "email": "engmohammedyehia@hotmail.com"
-        }
-    ],
-    "autoload": {
-      "App\\": "src/"
-    },
-    "require": {},
-    "require-dev": {
-        "eaglewu/swoole-ide-helper": "dev-master",
-        "phpunit/phpunit": "^8.2.5",
-        "squizlabs/php_codesniffer": "^3.4"
+  "name": "firefoxegy/mock-server",
+  "description": "A PHP implemenation of a Mock Server using Swoole",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Mohammed Yehia",
+      "email": "engmohammedyehia@hotmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {},
+  "require-dev": {
+    "eaglewu/swoole-ide-helper": "dev-master",
+    "phpunit/phpunit": "^8.2.5",
+    "squizlabs/php_codesniffer": "^3.4"
+  }
 }
