@@ -1,0 +1,16 @@
+{
+    "name": "firefoxegy/mock-server",
+    "description": "A PHP implemenation of a Mock Server using Swoole",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mohammed Yehia",
+            "email": "engmohammedyehia@hotmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "eaglewu/swoole-ide-helper": "dev-master",
+        "phpunit/phpunit": "^8.2.5"
+    }
+}
