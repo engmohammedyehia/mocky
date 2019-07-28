@@ -8,9 +8,9 @@ use App\JSONModels\JSONModelLeaf;
  * Class Employee
  * @package App\MockData
  */
-class Employee implements IMockData
+class Employee extends AbstractMockData
 {
-    public function buildResponse(): string
+    protected function isSuccess(): string
     {
         $employees = new JSONModelComposite('employees');
         $mohammed = new JSONModelLeaf(null, [
@@ -24,5 +24,10 @@ class Employee implements IMockData
         $employees->addNode($mohammed);
         $employees->addNode($ahmed);
         return json_encode($employees->render(), JSON_PRETTY_PRINT);
+    }
+
+    protected function isUnAuthorized(): string
+    {
+        return json_encode([], JSON_PRETTY_PRINT);
     }
 }

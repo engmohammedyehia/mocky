@@ -34,6 +34,9 @@ final class MockServer
      */
     private $response;
 
+    /** @var string */
+    private $responseType;
+
     /**
      * MockServer constructor.
      * @param IConfig $config
@@ -86,7 +89,7 @@ final class MockServer
             'start',
             function () {
                 printf(
-                    'Server started listening at %s on %d',
+                    "Server started listening at %s on %d\n",
                     $this->getServer()->host,
                     $this->getServer()->port
                 );
@@ -102,6 +105,11 @@ final class MockServer
         $this->getServer()->on(
             'request',
             function(Request $request, Response $response) {
+                $this->getMockServerResponse()->setEndPoint(
+                    $request->server['request_method'] .
+                    $request->server['path_info']
+                );
+                $this->getMockServerResponse()->setResponseType($this->responseType);
                 $this->getMockServerResponse()->sendResponse($response);
             }
         );
@@ -114,5 +122,10 @@ final class MockServer
     public function getMockServerResponse(): IResponse
     {
         return $this->response;
+    }
+
+    public function setResponseType(string $responseType): void
+    {
+        $this->responseType = $responseType;
     }
 }

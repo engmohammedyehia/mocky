@@ -7,5 +7,5 @@ namespace App\MockData;
  */
 interface IMockData
 {
-    public function buildResponse(): string;
+    public function buildResponse(string $responseType): string;
 }

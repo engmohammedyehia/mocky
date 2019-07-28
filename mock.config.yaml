@@ -1,13 +1,20 @@
 endpoints:
-  employees:
-    path: /employees
-    method: GET
-    response:
+  GET/notfound:
+    responses:
       success:
+        model: App\MockData\NotFound
+        status: 404
+        headers:
+          - {Content-Type: json}
+  GET/employees:
+    responses:
+      Success:
         model: App\MockData\Employee
         status: 200
-        type: json
-      un-authorized:
-        model: App\MockData\UnAuthorized
+        headers:
+          - {Content-Type: json, Cache-Control: private}
+      UnAuthorized:
+        model: App\MockData\Employee
         status: 401
-        type: json
+        headers:
+          - {Content-Type: json}
