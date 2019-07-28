@@ -9,5 +9,6 @@ interface IConfig
 {
     function getIpAddress(): string;
     function getPortNumber(): int;
+    function getConfigFilePath(): string;
     function validateConfig(): bool;
 }

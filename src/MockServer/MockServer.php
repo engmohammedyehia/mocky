@@ -2,6 +2,7 @@
 namespace App\MockServer;
 
 use App\Config\IConfig;
+use App\Response\IResponse;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
 use Swoole\Http\Server;
@@ -22,19 +23,28 @@ final class MockServer
      * @var Server
      */
     private $server;
+
     /**
      * @var IConfig
      */
     private $config;
 
     /**
+     * @var IResponse
+     */
+    private $response;
+
+    /**
      * MockServer constructor.
      * @param IConfig $config
+     * @param IResponse $response
      */
     public function __construct(
-        IConfig $config
+        IConfig $config,
+        IResponse $response
     ) {
         $this->config = $config;
+        $this->response = $response;
         $this->startServer();
     }
 
@@ -92,10 +102,17 @@ final class MockServer
         $this->getServer()->on(
             'request',
             function(Request $request, Response $response) {
-                $response->header('Content-Type', 'application/json');
-                $response->end(json_encode([1,2,3,4], JSON_PRETTY_PRINT));
+                $this->getMockServerResponse()->sendResponse($response);
             }
         );
         $this->getServer()->start();
+    }
+
+    /**
+     * @return IResponse
+     */
+    public function getMockServerResponse(): IResponse
+    {
+        return $this->response;
     }
 }

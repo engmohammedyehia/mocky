@@ -5,11 +5,13 @@ require_once __DIR__.DIRECTORY_SEPARATOR.
 
 use App\MockServer\MockServer;
 use App\Config\Config;
+use App\Response\Response;
 
 $config = new Config(
     '0.0.0.0',
     9501,
     __DIR__.'/mock.config.yaml'
 );
-$server = new MockServer($config);
+$response = new Response($config);
+$server = new MockServer($config, $response);
 $server->listen();
