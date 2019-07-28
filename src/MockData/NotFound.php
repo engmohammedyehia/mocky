@@ -10,7 +10,7 @@ use App\JSONModels\JSONModelLeaf;
  */
 class NotFound extends AbstractMockData
 {
-    protected function isSuccess(): string
+    protected function isDefault(): string
     {
         return '';
     }

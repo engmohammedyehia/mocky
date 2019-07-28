@@ -20,7 +20,7 @@ final class Response implements IResponse
     const DEFAULT_ENDPOINT = 'GET/notfound';
 
     /** @var string */
-    const DEFAULT_RESPONSE_TYPE = 'success';
+    const DEFAULT_RESPONSE_TYPE = 'Default';
 
     /** @var int */
     const DEFAULT_STATUS_CODE = 200;

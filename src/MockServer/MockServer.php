@@ -35,7 +35,7 @@ final class MockServer
     private $response;
 
     /** @var string */
-    private $responseType;
+    private $responseType = 'Default';
 
     /**
      * MockServer constructor.

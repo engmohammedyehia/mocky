@@ -1,14 +1,14 @@
 endpoints:
   GET/notfound:
     responses:
-      success:
+      Default:
         model: App\MockData\NotFound
         status: 404
         headers:
           - {Content-Type: json}
   GET/employees:
     responses:
-      Success:
+      Default:
         model: App\MockData\Employee
         status: 200
         headers:

@@ -14,5 +14,4 @@ $config = new Config(
 );
 $response = new Response($config);
 $server = new MockServer($config, $response);
-$server->setResponseType('UnAuthorized');
 $server->listen();

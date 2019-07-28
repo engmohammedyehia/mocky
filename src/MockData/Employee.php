@@ -10,7 +10,7 @@ use App\JSONModels\JSONModelLeaf;
  */
 class Employee extends AbstractMockData
 {
-    protected function isSuccess(): string
+    protected function isDefault(): string
     {
         $employees = new JSONModelComposite('employees');
         $mohammed = new JSONModelLeaf(null, [
