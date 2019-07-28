@@ -1,5 +1,5 @@
 <?php
-namespace App\Composite;
+namespace App\JSONModels;
 
 class JSONModelLeaf extends AbstractJSONModel
 {

@@ -13,7 +13,10 @@
       "App\\": "src/"
     }
   },
-  "require": {},
+  "require": {
+    "ext-json": "*",
+    "symfony/yaml": "^4.3"
+  },
   "require-dev": {
     "eaglewu/swoole-ide-helper": "dev-master",
     "phpunit/phpunit": "^8.2.5",

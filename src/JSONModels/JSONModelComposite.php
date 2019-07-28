@@ -1,5 +1,5 @@
 <?php
-namespace App\Composite;
+namespace App\JSONModels;
 
 use SplObjectStorage;
 
@@ -11,9 +11,9 @@ class JSONModelComposite extends AbstractJSONModel
     /**
      * JSONModelComposite constructor.
      * @param string|null $name
-     * @param array $data
+     * @param array|null $data
      */
-    public function __construct(?string $name, array $data)
+    public function __construct(?string $name, ?array $data = [])
     {
         $this->nodes = new SplObjectStorage();
         parent::__construct($name, $data);

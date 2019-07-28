@@ -1,5 +1,5 @@
 <?php
-namespace App\Composite;
+namespace App\JSONModels;
 
 /**
  * Class AbstractJSONModel
@@ -13,7 +13,7 @@ abstract class AbstractJSONModel
     /** @var string|null */
     protected $name;
 
-    /** @var array */
+    /** @var array|null */
     protected $data;
 
     /**
@@ -21,7 +21,7 @@ abstract class AbstractJSONModel
      * @param string|null $name
      * @param array $data
      */
-    public function __construct(?string $name, array $data)
+    public function __construct(?string $name, ?array $data = [])
     {
         $this->data = $data;
         $this->name = $name;
@@ -44,7 +44,7 @@ abstract class AbstractJSONModel
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getData(): array
     {
@@ -52,9 +52,9 @@ abstract class AbstractJSONModel
     }
 
     /**
-     * @param array $data
+     * @param array|null $data
      */
-    public function setData(array $data): void
+    public function setData(?array $data): void
     {
         $this->data = $data;
     }

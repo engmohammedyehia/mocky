@@ -1,0 +1,13 @@
+endpoints:
+  employees:
+    path: /employees
+    method: GET
+    response:
+      success:
+        model: App\MockData\Employee
+        status: 200
+        type: json
+      un-authorized:
+        model: App\MockData\UnAuthorized
+        status: 401
+        type: json
