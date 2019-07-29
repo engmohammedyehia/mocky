@@ -16,8 +16,8 @@ log: ## Show Server logs
 
 .PHONY: clean
 clean: ## remove all the dependencies
-	@rm composer.lock || true
-	@rm -rf ./vendore || true
+	@rm ./composer.lock || true
+	@rm -rf ./vendor || true
 
 .PHONY: help
 help:
