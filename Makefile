@@ -2,6 +2,15 @@
 install: ## Install the project dependencies
 	@composer install --ignore-platform-reqs
 
+start: ## Start the Server
+	@docker-compose up -d
+
+run-with-logs: ## Start the Server with logging enabled
+	@docker-compose up -d && docker logs -f mock_server_container
+
+shutdown: ## Shutdown the Server
+	@docker-compose down --remove-orphans
+
 log: ## Show Server logs
 	@docker logs -f mock_server_container
 
