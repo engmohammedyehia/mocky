@@ -3,6 +3,7 @@ namespace App\MockServer;
 
 use App\Config\IConfig;
 use App\Response\IResponse;
+use App\Router\IRouter;
 use DateTime;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
@@ -35,7 +36,7 @@ final class MockServer
      */
     private $response;
 
-    /** @var  */
+    /** @var IRouter */
     private $router;
 
     /** @var string */
@@ -43,11 +44,14 @@ final class MockServer
 
     /**
      * MockServer constructor.
+     * @param IRouter $router
      * @param IResponse $response
      */
     public function __construct(
+        IRouter $router,
         IResponse $response
     ) {
+        $this->router = $router;
         $this->config = $response->getConfig();
         $this->response = $response;
         $this->startServer();
@@ -104,8 +108,7 @@ final class MockServer
             'request',
             function(Request $request, Response $response) {
                 $this->getMockServerResponse()->setEndPoint(
-                    $request->server['request_method'] .
-                    $request->server['path_info']
+                    $this->getRouter()->getEndPoint($request)
                 );
                 $this->getMockServerResponse()->setResponseType($this->responseType);
                 $this->getMockServerResponse()->sendResponse($response);
@@ -164,5 +167,13 @@ final class MockServer
             $request->server['request_method'],
             $request->server['path_info']
         );
+    }
+
+    /**
+     * @return IRouter
+     */
+    private function getRouter(): IRouter
+    {
+        return $this->router;
     }
 }

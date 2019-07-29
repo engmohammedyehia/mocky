@@ -6,6 +6,7 @@ require_once __DIR__.DIRECTORY_SEPARATOR.
 use App\MockServer\MockServer;
 use App\Config\Config;
 use App\Response\Response;
+use App\Router\Router;
 
 $config = new Config(
     getenv('MOCK_SERVER_IP'),
@@ -13,5 +14,8 @@ $config = new Config(
     getenv('MOCK_CONFIG_FILE')
 );
 
-$server = new MockServer(new Response($config));
+$server = new MockServer(
+    new Router(),
+    new Response($config)
+);
 $server->listen();

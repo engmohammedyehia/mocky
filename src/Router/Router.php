@@ -1,19 +1,26 @@
 <?php
 namespace App\Router;
 
-use App\Config\IConfig;
 use Swoole\Http\Request;
 
 /**
  * Interface IRoute
  * @package App\Router
  */
-final class Router
+final class Router implements IRouter
 {
-    public function isRouteValid(
-        Request $request,
-        IConfig $config
-    ) {
+    public function getMethod(Request $request): string
+    {
+        return $request->server['request_method'];
+    }
 
+    public function getPath(Request $request): string
+    {
+        return $request->server['path_info'];
+    }
+
+    public function getEndPoint(Request $request): string
+    {
+        return $this->getMethod($request).$this->getPath($request);
     }
 }
