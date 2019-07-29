@@ -35,6 +35,9 @@ final class MockServer
      */
     private $response;
 
+    /** @var  */
+    private $router;
+
     /** @var string */
     private $responseType = 'Default';
 

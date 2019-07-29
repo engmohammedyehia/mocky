@@ -3,9 +3,6 @@ namespace App\Response;
 
 use App\Config\ConfigValidator;
 use App\Config\IConfig;
-use App\MockData\Employee;
-use App\MockData\IMockData;
-use Symfony\Component\Yaml\Yaml;
 use Swoole\Http\Response as SwooleResponse;
 
 /**
@@ -28,9 +25,6 @@ final class Response implements IResponse
     /** @var IConfig */
     private $config;
 
-    /** @var array */
-    private $configData;
-
     /** @var string */
     private $endpoint;
 
@@ -44,15 +38,6 @@ final class Response implements IResponse
     public function __construct(IConfig $config)
     {
         $this->config = $config;
-        $this->configData = Yaml::parseFile($config->getConfigFilePath());
-    }
-
-    /**
-     * @return array
-     */
-    public function getConfiguration(): array
-    {
-        return $this->configData;
     }
 
     /**
@@ -63,7 +48,11 @@ final class Response implements IResponse
     {
         $this->prepareHeaders($response);
         $this->setStatusCode($response);
-        $response->end($this->getModelResponse());
+        $response->end(
+            $this->getConfig()
+                ->getConfigParser()
+                ->getModelResponse($this)
+        );
     }
 
     /**
@@ -72,10 +61,12 @@ final class Response implements IResponse
      */
     private function prepareHeaders(SwooleResponse $response)
     {
-        $headers = $this->extractResponseHeaders();
+        $headers = $this->getConfig()
+            ->getConfigParser()
+            ->extractResponseHeaders($this);
         if(!empty($headers)) {
             foreach ($headers[0] as $headerName => $value) {
-                if($this->validateHeaders($headerName)) {
+                if($this->validateHeader($headerName)) {
                     $response->header($headerName, $value);
                 }
             }
@@ -88,22 +79,11 @@ final class Response implements IResponse
      */
     private function setStatusCode(SwooleResponse $response)
     {
-        $response->status($this->extractStatusCode());
-    }
-
-    /**
-     * Get the mock data model response to send it to the client
-     * @return string
-     */
-    private function getModelResponse()
-    {
-        $model = $this->getConfiguration()['endpoints']
-        [$this->getEndpoint()]['responses']
-        [$this->getResponseType()]['model'];
-
-        /** @var IMockData $response */
-        $response = new $model();
-        return $response->buildResponse($this->getResponseType());
+        $response->status(
+            $this->getConfig()
+                ->getConfigParser()
+                ->extractStatusCode($this)
+        );
     }
 
     /**
@@ -121,7 +101,7 @@ final class Response implements IResponse
     {
         if(!array_key_exists(
             $endpoint,
-            $this->getConfiguration()['endpoints'])
+            $this->getConfig()->getConfigParser()->getConfigData()['endpoints'])
         ) {
             $this->endpoint = self::DEFAULT_ENDPOINT;
         } else {
@@ -144,50 +124,13 @@ final class Response implements IResponse
     {
         if(!array_key_exists(
             $responseType,
-            $this->getConfiguration()['endpoints'][$this->getEndpoint()]['responses'])
+            $this->getConfig()->getConfigParser()->getConfigData()['endpoints'][$this->getEndpoint()]['responses'])
         ) {
             $this->endpoint = self::DEFAULT_ENDPOINT;
             $this->responseType = self::DEFAULT_RESPONSE_TYPE;
         } else {
             $this->responseType = $responseType;
         }
-    }
-
-    /**
-     * Get a list of response header for the requested endpoint
-     * @return array|null
-     */
-    private function extractResponseHeaders(): ?array
-    {
-        if(array_key_exists('headers', $this->getEndpointResponse())){
-            return $this->getEndpointResponse()['headers'];
-        }
-
-        return [];
-    }
-
-    /**
-     * Get the status code of the current response
-     * @return int
-     */
-    private function extractStatusCode(): int
-    {
-        if(array_key_exists('status', $this->getEndpointResponse())){
-            return $this->getEndpointResponse()['status'];
-        }
-
-        return self::DEFAULT_STATUS_CODE;
-    }
-
-    /**
-     * Returns the current response array of the requested endpoint
-     * @return array
-     */
-    private function getEndpointResponse(): array
-    {
-        return $this->getConfiguration()['endpoints']
-        [$this->getEndpoint()]['responses']
-        [$this->getResponseType()];
     }
 
     /**

@@ -60,11 +60,13 @@ trait ConfigValidator
         return true;
     }
 
-    private function validateHeaders(string $header): bool
+    /**
+     * Check if the response header is a valid header
+     * @param string $header
+     * @return bool
+     */
+    private function validateHeader(string $header): bool
     {
-        if (!in_array($header, StandardResponseHeaders::getStandardHeaders())) {
-            return false;
-        }
-        return true;
+        return in_array($header, StandardResponseHeaders::getStandardHeaders());
     }
 }
