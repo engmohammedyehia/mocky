@@ -16,24 +16,16 @@ use Swoole\Http\Server;
  */
 final class MockServer
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $version = '1.0.0';
 
-    /**
-     * @var Server
-     */
+    /** @var Server */
     private $server;
 
-    /**
-     * @var IConfig
-     */
+    /** @var IConfig */
     private $config;
 
-    /**
-     * @var IResponse
-     */
+    /** @var IResponse */
     private $response;
 
     /** @var IRouter */
