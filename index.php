@@ -8,9 +8,10 @@ use App\Config\Config;
 use App\Response\Response;
 
 $config = new Config(
-    '0.0.0.0',
-    9501,
-    __DIR__.'/mock.config.yaml'
+    getenv('MOCK_SERVER_IP'),
+    getenv('MOCK_SERVER_PORT'),
+    getenv('MOCK_CONFIG_FILE')
 );
+
 $server = new MockServer(new Response($config));
 $server->listen();
