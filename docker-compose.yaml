@@ -3,11 +3,13 @@ services:
   web:
     image: firefoxegy/php7.2_nginx_xdebug_swoole
     restart: always
-    container_name: swoole_container
+    container_name: mock_server_container
     volumes:
       - ./:/home
     expose:
       - 9501
     ports:
       - 9501:9501
-    command: php index.php
+    entrypoint:
+      - php
+      - index.php
