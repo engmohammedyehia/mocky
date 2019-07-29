@@ -159,7 +159,6 @@ final class MockServer
             $bl . str_repeat($h, 35)  . $br . "\n";
     }
 
-    // TODO: Define a configuration option to debug requests in next version
     private function logRequest(Request $request)
     {
         if ($this->getConfig()->getLogging()) {
