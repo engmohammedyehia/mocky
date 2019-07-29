@@ -11,4 +11,6 @@ interface IConfig
     function getPortNumber(): int;
     function getConfigFilePath(): string;
     function getConfigParser(): ConfigParser;
+    public function getPrefix(): string;
+    public function getLogging(): bool;
 }

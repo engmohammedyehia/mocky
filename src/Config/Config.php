@@ -106,7 +106,7 @@ final class Config implements IConfig
     /**
      * @return bool
      */
-    public function isLogging(): bool
+    public function getLogging(): bool
     {
         return $this->logging;
     }

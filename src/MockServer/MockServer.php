@@ -104,18 +104,28 @@ final class MockServer
      */
     public function listen(): void
     {
+        $this->handleRequests();
+        $this->getServer()->start();
+    }
+
+    /**
+     * Handles incoming requests to the server
+     */
+    private function handleRequests(): void
+    {
         $this->getServer()->on(
             'request',
             function(Request $request, Response $response) {
                 $this->getMockServerResponse()->setEndPoint(
                     $this->getRouter()->getEndPoint($request)
                 );
-                $this->getMockServerResponse()->setResponseType($this->responseType);
+                $this->getMockServerResponse()->setResponseType(
+                    $this->responseType
+                );
                 $this->getMockServerResponse()->sendResponse($response);
                 $this->logRequest($request);
             }
         );
-        $this->getServer()->start();
     }
 
     /**
@@ -160,13 +170,15 @@ final class MockServer
     // TODO: Define a configuration option to debug requests in next version
     private function logRequest(Request $request)
     {
-        $now = (new DateTime())->format('H:i:s');
-        printf(
-            "# Request at (%s): %s %s\n",
-            $now,
-            $request->server['request_method'],
-            $request->server['path_info']
-        );
+        if ($this->getConfig()->getLogging()) {
+            $now = (new DateTime())->format('H:i:s');
+            printf(
+                "# Request at (%s): %s %s\n",
+                $now,
+                $request->server['request_method'],
+                $request->server['path_info']
+            );
+        }
     }
 
     /**
