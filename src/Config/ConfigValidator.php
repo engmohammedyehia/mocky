@@ -27,7 +27,7 @@ trait ConfigValidator
      */
     private function validateIpAddress(): bool
     {
-        if(!filter_var(
+        if (!filter_var(
             $this->getIpAddress(),
             FILTER_VALIDATE_IP
         )) {
@@ -48,7 +48,7 @@ trait ConfigValidator
      */
     private function validateConfigFile(): bool
     {
-        if(!file_exists($this->getConfigFilePath()) ||
+        if (!file_exists($this->getConfigFilePath()) ||
             !is_readable($this->getConfigFilePath())) {
             throw new InvalidArgumentException(
                 sprintf(

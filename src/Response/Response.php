@@ -64,9 +64,9 @@ final class Response implements IResponse
         $headers = $this->getConfig()
             ->getConfigParser()
             ->extractResponseHeaders($this);
-        if(!empty($headers)) {
+        if (!empty($headers)) {
             foreach ($headers[0] as $headerName => $value) {
-                if($this->validateHeader($headerName)) {
+                if ($this->validateHeader($headerName)) {
                     $response->header($headerName, $value);
                 }
             }
@@ -99,9 +99,10 @@ final class Response implements IResponse
      */
     public function setEndpoint(string $endpoint): void
     {
-        if(!array_key_exists(
+        if (!array_key_exists(
             $endpoint,
-            $this->getConfig()->getConfigParser()->getConfigData()['endpoints'])
+            $this->getConfig()->getConfigParser()->getConfigData()['endpoints']
+        )
         ) {
             $this->endpoint = self::DEFAULT_ENDPOINT;
         } else {
@@ -122,9 +123,10 @@ final class Response implements IResponse
      */
     public function setResponseType(string $responseType): void
     {
-        if(!array_key_exists(
+        if (!array_key_exists(
             $responseType,
-            $this->getConfig()->getConfigParser()->getConfigData()['endpoints'][$this->getEndpoint()]['responses'])
+            $this->getConfig()->getConfigParser()->getConfigData()['endpoints'][$this->getEndpoint()]['responses']
+        )
         ) {
             $this->endpoint = self::DEFAULT_ENDPOINT;
             $this->responseType = self::DEFAULT_RESPONSE_TYPE;

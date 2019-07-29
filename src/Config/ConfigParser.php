@@ -31,7 +31,7 @@ final class ConfigParser
      */
     public function extractResponseHeaders(IResponse $response): ?array
     {
-        if(array_key_exists('headers', $this->getEndpointResponse($response))){
+        if (array_key_exists('headers', $this->getEndpointResponse($response))) {
             return $this->getEndpointResponse($response)['headers'];
         }
 
@@ -45,7 +45,7 @@ final class ConfigParser
      */
     public function extractStatusCode(IResponse $response): int
     {
-        if(array_key_exists('status', $this->getEndpointResponse($response))){
+        if (array_key_exists('status', $this->getEndpointResponse($response))) {
             return $this->getEndpointResponse($response)['status'];
         }
 

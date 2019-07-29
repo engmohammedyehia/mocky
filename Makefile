@@ -14,6 +14,18 @@ shutdown: ## Shutdown the Server
 log: ## Show Server logs
 	@docker logs -f mock_server_container
 
+.PHONY: shell
+shell: ## Open the shell of the web container
+	@docker exec -it mock_server_container bash
+
+.PHONY: code-std
+code-std: ## Standardize the PHP code according to PSR2
+	@docker exec -it mock_server_container ./vendor/bin/phpcbf
+
+.PHONY: code-chk
+code-chk: ## Check the PHP code according to PSR2
+	@docker exec -it mock_server_container ./vendor/bin/phpcs
+
 .PHONY: clean
 clean: ## remove all the dependencies
 	@rm ./composer.lock || true

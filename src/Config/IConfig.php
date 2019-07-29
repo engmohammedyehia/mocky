@@ -7,10 +7,10 @@ namespace App\Config;
  */
 interface IConfig
 {
-    function getIpAddress(): string;
-    function getPortNumber(): int;
-    function getConfigFilePath(): string;
-    function getConfigParser(): ConfigParser;
+    public function getIpAddress(): string;
+    public function getPortNumber(): int;
+    public function getConfigFilePath(): string;
+    public function getConfigParser(): ConfigParser;
     public function getPrefix(): string;
     public function getLogging(): bool;
 }

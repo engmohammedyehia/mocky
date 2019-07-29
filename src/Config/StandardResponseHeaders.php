@@ -48,4 +48,3 @@ class StandardResponseHeaders
         return self::$headers;
     }
 }
-

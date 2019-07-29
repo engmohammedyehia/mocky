@@ -107,7 +107,7 @@ final class MockServer
     {
         $this->getServer()->on(
             'request',
-            function(Request $request, Response $response) {
+            function (Request $request, Response $response) {
                 $this->getMockServerResponse()->setEndPoint(
                     $this->getRouter()->getEndPoint($request)
                 );
