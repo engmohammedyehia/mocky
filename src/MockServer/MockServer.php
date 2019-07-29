@@ -3,6 +3,7 @@ namespace App\MockServer;
 
 use App\Config\IConfig;
 use App\Response\IResponse;
+use DateTime;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
 use Swoole\Http\Server;
@@ -15,9 +16,9 @@ use Swoole\Http\Server;
 final class MockServer
 {
     /**
-     * @var int
+     * @var string
      */
-    private $version = 1;
+    private $version = '1.0.0';
 
     /**
      * @var Server
@@ -58,9 +59,9 @@ final class MockServer
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getVersion(): int
+    public function getVersion(): string
     {
         return $this->version;
     }
@@ -86,11 +87,7 @@ final class MockServer
         $this->getServer()->on(
             'start',
             function () {
-                printf(
-                    "Server started listening at %s on %d\n",
-                    $this->getServer()->host,
-                    $this->getServer()->port
-                );
+                printf('[0;32;m%s', $this->welcome());
             }
         );
     }
@@ -109,6 +106,7 @@ final class MockServer
                 );
                 $this->getMockServerResponse()->setResponseType($this->responseType);
                 $this->getMockServerResponse()->sendResponse($response);
+                $this->logRequest($request);
             }
         );
         $this->getServer()->start();
@@ -122,8 +120,46 @@ final class MockServer
         return $this->response;
     }
 
-    public function setResponseType(string $responseType): void
+    // TODO: Encapsulate this into a helper function
+    private function welcome()
     {
-        $this->responseType = $responseType;
+        $tl = html_entity_decode('╔', ENT_NOQUOTES, 'UTF-8');
+        $tr = html_entity_decode('╗', ENT_NOQUOTES, 'UTF-8');
+        $bl = html_entity_decode('╚', ENT_NOQUOTES, 'UTF-8');
+        $br = html_entity_decode('╝', ENT_NOQUOTES, 'UTF-8');
+        $v = html_entity_decode('║', ENT_NOQUOTES, 'UTF-8');
+        $h = html_entity_decode('═', ENT_NOQUOTES, 'UTF-8');
+
+        return
+            "\n".
+            $tl.
+            str_repeat($h, 35).
+            $tr.
+            "\n".
+            $v.'                                   '.$v.
+            "\n".
+            $v.
+            '  Mock Server started at ' .
+            (new DateTime())->format('H:i:s').'  '.$v."\n".$v.'                                   '.$v.
+            "\n".$v.
+            '  Server Version: ' . $this->getVersion().'            '.$v."\n".$v.
+            '  Server IP Address: ' . $this->getServer()->host.'       '.$v."\n".$v.
+            '  Port Number: ' . $this->getServer()->port.'                '.$v."\n".$v.
+            '  Server URL: http://' . $this->getServer()->host.':'.
+            $this->getServer()->port . '  '.$v."\n".$v.'                                   '.$v."\n".
+            $v.'  Enjoy ;)                         '.$v."\n".$v.'                                   '.$v."\n".
+            $bl . str_repeat($h, 35)  . $br . "\n";
+    }
+
+    // TODO: Define a configuration option to debug requests in next version
+    private function logRequest(Request $request)
+    {
+        $now = (new DateTime())->format('H:i:s');
+        printf(
+            "# Request at (%s): %s %s\n",
+            $now,
+            $request->server['request_method'],
+            $request->server['path_info']
+        );
     }
 }
