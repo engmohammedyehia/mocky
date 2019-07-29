@@ -13,6 +13,11 @@
       "App\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "tests/"
+    }
+  },
   "require": {
     "ext-json": "*",
     "symfony/yaml": "^4.3"

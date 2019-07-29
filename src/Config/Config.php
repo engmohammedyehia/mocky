@@ -55,15 +55,13 @@ final class Config implements IConfig
         $this->logging = $logging;
         try {
             $this->validateConfig();
+            $this->createConfigParser();
         } catch (InvalidArgumentException $e) {
-            die(
-                sprintf(
-                    'Invalid configuration: %s',
-                    $e->getMessage()
-                )
+            sprintf(
+                'Invalid configuration: %s',
+                $e->getMessage()
             );
         }
-        $this->createConfigParser();
     }
 
     private function createConfigParser(): void

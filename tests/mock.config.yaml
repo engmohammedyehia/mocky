@@ -1,0 +1,20 @@
+endpoints:
+  GET/notfound:
+    responses:
+      Default:
+        model: App\MockData\NotFound
+        status: 404
+        headers:
+          - {Content-Type: json}
+  GET/employees:
+    responses:
+      Default:
+        model: App\MockData\Employee
+        status: 200
+        headers:
+          - {Content-Type: json, Cache-Control: private}
+      UnAuthorized:
+        model: App\MockData\Employee
+        status: 401
+        headers:
+          - {Content-Type: json}

@@ -97,7 +97,7 @@ final class MockServer
     public function listen(): void
     {
         $this->handleRequests();
-        $this->getServer()->start();
+        @$this->getServer()->start();
     }
 
     /**
