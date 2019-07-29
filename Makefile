@@ -5,7 +5,7 @@ install: ## Install the project dependencies
 start: ## Start the Server
 	@docker-compose up -d
 
-run-with-logs: ## Start the Server with logging enabled
+start-log: ## Start the Server with logging enabled
 	@docker-compose up -d && docker logs -f mock_server_container
 
 shutdown: ## Shutdown the Server
