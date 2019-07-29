@@ -25,8 +25,11 @@ final class Response implements IResponse
     /** @var int */
     const DEFAULT_STATUS_CODE = 200;
 
+    /** @var IConfig */
+    private $config;
+
     /** @var array */
-    private $configuration;
+    private $configData;
 
     /** @var string */
     private $endpoint;
@@ -40,7 +43,8 @@ final class Response implements IResponse
      */
     public function __construct(IConfig $config)
     {
-        $this->configuration = Yaml::parseFile($config->getConfigFilePath());
+        $this->config = $config;
+        $this->configData = Yaml::parseFile($config->getConfigFilePath());
     }
 
     /**
@@ -48,9 +52,13 @@ final class Response implements IResponse
      */
     public function getConfiguration(): array
     {
-        return $this->configuration;
+        return $this->configData;
     }
 
+    /**
+     * Send back a response to the Client
+     * @param SwooleResponse $response
+     */
     public function sendResponse(SwooleResponse $response): void
     {
         $this->prepareHeaders($response);
@@ -58,9 +66,13 @@ final class Response implements IResponse
         $response->end($this->getModelResponse());
     }
 
+    /**
+     * Sets the response headers
+     * @param SwooleResponse $response
+     */
     private function prepareHeaders(SwooleResponse $response)
     {
-        $headers = $this->extractResponseHeader();
+        $headers = $this->extractResponseHeaders();
         if(!empty($headers)) {
             foreach ($headers[0] as $headerName => $value) {
                 if($this->validateHeaders($headerName)) {
@@ -70,11 +82,19 @@ final class Response implements IResponse
         }
     }
 
+    /**
+     * Sets the response status code
+     * @param SwooleResponse $response
+     */
     private function setStatusCode(SwooleResponse $response)
     {
         $response->status($this->extractStatusCode());
     }
 
+    /**
+     * Get the mock data model response to send it to the client
+     * @return string
+     */
     private function getModelResponse()
     {
         $model = $this->getConfiguration()['endpoints']
@@ -133,28 +153,48 @@ final class Response implements IResponse
         }
     }
 
-    private function extractResponseHeader(): ?array
+    /**
+     * Get a list of response header for the requested endpoint
+     * @return array|null
+     */
+    private function extractResponseHeaders(): ?array
     {
-        if(array_key_exists('headers', $this->getResponseArray())){
-            return $this->getResponseArray()['headers'];
+        if(array_key_exists('headers', $this->getEndpointResponse())){
+            return $this->getEndpointResponse()['headers'];
         }
 
         return [];
     }
 
+    /**
+     * Get the status code of the current response
+     * @return int
+     */
     private function extractStatusCode(): int
     {
-        if(array_key_exists('status', $this->getResponseArray())){
-            return $this->getResponseArray()['status'];
+        if(array_key_exists('status', $this->getEndpointResponse())){
+            return $this->getEndpointResponse()['status'];
         }
 
         return self::DEFAULT_STATUS_CODE;
     }
 
-    private function getResponseArray(): array
+    /**
+     * Returns the current response array of the requested endpoint
+     * @return array
+     */
+    private function getEndpointResponse(): array
     {
         return $this->getConfiguration()['endpoints']
         [$this->getEndpoint()]['responses']
         [$this->getResponseType()];
+    }
+
+    /**
+     * @return IConfig
+     */
+    public function getConfig(): IConfig
+    {
+        return $this->config;
     }
 }

@@ -39,14 +39,12 @@ final class MockServer
 
     /**
      * MockServer constructor.
-     * @param IConfig $config
      * @param IResponse $response
      */
     public function __construct(
-        IConfig $config,
         IResponse $response
     ) {
-        $this->config = $config;
+        $this->config = $response->getConfig();
         $this->response = $response;
         $this->startServer();
     }

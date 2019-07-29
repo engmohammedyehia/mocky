@@ -12,6 +12,5 @@ $config = new Config(
     9501,
     __DIR__.'/mock.config.yaml'
 );
-$response = new Response($config);
-$server = new MockServer($config, $response);
+$server = new MockServer(new Response($config));
 $server->listen();
