@@ -1,6 +1,8 @@
 <?php
 namespace App\Config;
 
+use App\Config\Exceptions\InvalidVersionException;
+use App\Config\Exceptions\MissingExtensionException;
 use InvalidArgumentException;
 
 /**
@@ -11,17 +13,13 @@ final class Config implements IConfig
 {
     use ConfigValidator;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $ipAddress;
-    /**
-     * @var int
-     */
+
+    /** @var int */
     private $portNumber;
-    /**
-     * @var string
-     */
+
+    /** @var string */
     private $configFilePath;
 
     /** @var string */
@@ -33,40 +31,83 @@ final class Config implements IConfig
     /** @var ConfigParser */
     private $configParser;
 
+    /** @var array */
+    private $options;
+
     /**
      * Config constructor.
      * @param string $ipAddress
      * @param int $portNumber
      * @param string $configFilePath
-     * @param string $prefix
-     * @param bool $logging
+     * @param array $options
      */
     public function __construct(
         string $ipAddress,
         int $portNumber,
         string $configFilePath,
-        string $prefix = '',
-        bool $logging = false
+        array $options = []
     ) {
         $this->ipAddress = $ipAddress;
         $this->portNumber = $portNumber;
         $this->configFilePath = $configFilePath;
-        $this->prefix = $prefix;
-        $this->logging = $logging;
+        $this->options = $options;
+
         try {
+            $this->bootStrapCheck();
             $this->validateConfig();
             $this->createConfigParser();
+            $this->buildExtraConfiguration();
         } catch (InvalidArgumentException $e) {
             sprintf(
                 'Invalid configuration: %s',
                 $e->getMessage()
             );
+        } catch (InvalidVersionException $e) {
+            sprintf(
+                'Wrong PHP version: %s',
+                $e->getMessage()
+            );
+        } catch (MissingExtensionException $e) {
+            sprintf(
+                'Extension is missing: %s',
+                $e->getMessage()
+            );
         }
     }
 
+    /**
+     * @throws InvalidVersionException
+     * @throws MissingExtensionException
+     */
+    private function bootStrapCheck()
+    {
+        if (version_compare(phpversion(), '7.2.0', '<')) {
+            throw new InvalidVersionException();
+        }
+
+        if (!extension_loaded('swoole')) {
+            throw new MissingExtensionException();
+        }
+    }
+
+    /**
+     * Creates an instance of the configuration parser
+     */
     private function createConfigParser(): void
     {
         $this->configParser = new ConfigParser($this->configFilePath);
+    }
+
+    /**
+     * Collect other configuration values
+     */
+    private function buildExtraConfiguration()
+    {
+        if (!empty($this->getOptions())) {
+            foreach ($this->getOptions() as $option => $value) {
+                $this->$option = $value;
+            }
+        }
     }
 
     /**
@@ -115,5 +156,13 @@ final class Config implements IConfig
     public function getConfigParser(): ConfigParser
     {
         return $this->configParser;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
     }
 }

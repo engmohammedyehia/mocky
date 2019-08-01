@@ -14,7 +14,7 @@ trait ConfigValidator
      * @return bool
      * @throws InvalidArgumentException
      */
-    public function validateConfig(): bool
+    private function validateConfig(): bool
     {
         return $this->validateIpAddress() &&
             $this->validateConfigFile();

@@ -13,8 +13,10 @@ $config = new Config(
     getenv('MOCK_SERVER_IP'),
     getenv('MOCK_SERVER_PORT'),
     getenv('MOCK_CONFIG_FILE'),
-    getenv('MOCK_SERVER_PREFIX'),
-    getenv('MOCK_SERVER_LOGGING')
+    [
+        'prefix' => getenv('MOCK_SERVER_PREFIX'),
+        'logging' => getenv('MOCK_SERVER_LOGGING')
+    ]
 );
 
 $server = new MockServer(
