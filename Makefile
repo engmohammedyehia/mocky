@@ -26,9 +26,9 @@ code-std: ## Standardize the PHP code according to PSR2
 code-chk: ## Check the PHP code according to PSR2
 	@docker exec -it mock_server_container ./vendor/bin/phpcs
 
-.PHONY: test
-test: ## Unit Testing
-	@docker exec -it mock_server_container ./vendor/bin/phpunit -v --colors=always ./tests
+.PHONY: unit-test
+unit-test: ## Unit Testing
+	@docker exec -it mock_server_container php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit -v --colors=always ./tests
 
 .PHONY: clean
 clean: ## remove all the dependencies

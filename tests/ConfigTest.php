@@ -4,7 +4,6 @@ namespace Tests;
 use App\Config\Config;
 use App\Config\ConfigParser;
 use App\Config\IConfig;
-use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class ConfigTest extends TestCase
