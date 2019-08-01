@@ -24,7 +24,7 @@ class Logger implements ILogger
             $this->getRequest()->server['request_method'],
             $this->getRequest()->server['path_info'],
             $this->getRequest()->server['query_string'] ?? 'null',
-            $this->getRequest()->rawContent()
+            preg_replace("/\t/i", "", $this->getRequest()->rawContent())
         );
     }
 
