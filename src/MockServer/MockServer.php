@@ -2,6 +2,7 @@
 namespace App\MockServer;
 
 use App\Config\IConfig;
+use App\Helpers;
 use App\Logger\ILogger;
 use App\Response\IResponse;
 use App\Router\IRouter;
@@ -96,7 +97,7 @@ final class MockServer
         $this->getServer()->on(
             'start',
             function () {
-                printf('[0;32;m%s', $this->welcome());
+                printf('[0;32;m%s', Helpers::bootMessage($this));
             }
         );
     }
@@ -136,37 +137,6 @@ final class MockServer
     public function getMockServerResponse(): IResponse
     {
         return $this->response;
-    }
-
-    // TODO: Encapsulate this into a helper function
-    private function welcome()
-    {
-        $tl = html_entity_decode('╔', ENT_NOQUOTES, 'UTF-8');
-        $tr = html_entity_decode('╗', ENT_NOQUOTES, 'UTF-8');
-        $bl = html_entity_decode('╚', ENT_NOQUOTES, 'UTF-8');
-        $br = html_entity_decode('╝', ENT_NOQUOTES, 'UTF-8');
-        $v = html_entity_decode('║', ENT_NOQUOTES, 'UTF-8');
-        $h = html_entity_decode('═', ENT_NOQUOTES, 'UTF-8');
-
-        return
-            "\n".
-            $tl.
-            str_repeat($h, 35).
-            $tr.
-            "\n".
-            $v.'                                   '.$v.
-            "\n".
-            $v.
-            '  Mock Server started at ' .
-            (new DateTime())->format('H:i:s').'  '.$v."\n".$v.'                                   '.$v.
-            "\n".$v.
-            '  Server Version: ' . $this->getVersion().'            '.$v."\n".$v.
-            '  Server IP Address: ' . $this->getServer()->host.'       '.$v."\n".$v.
-            '  Port Number: ' . $this->getServer()->port.'                '.$v."\n".$v.
-            '  Server URL: http://' . $this->getServer()->host.':'.
-            $this->getServer()->port . '  '.$v."\n".$v.'                                   '.$v."\n".
-            $v.'  Enjoy ;)                         '.$v."\n".$v.'                                   '.$v."\n".
-            $bl . str_repeat($h, 35)  . $br . "\n";
     }
 
     /**
