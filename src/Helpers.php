@@ -56,6 +56,6 @@ final class Helpers
         $output = trim($output, "\n");
         $output .= $newLine;
         $output .= $bottomBorder;
-        return "\n".$output;
+        return "\n".$output."\n\n";
     }
 }
