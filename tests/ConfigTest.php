@@ -42,8 +42,8 @@ class ConfigTest extends TestCase
         $this->assertEquals(9501, $this->config->getPortNumber());
     }
 
-    public function testGetLogging()
+    public function testIsLoggingEnabled()
     {
-        $this->assertEquals(true, $this->config->getLogging());
+        $this->assertEquals(true, $this->config->isLoggingEnabled());
     }
 }

@@ -2,6 +2,7 @@
 namespace App\MockServer;
 
 use App\Config\IConfig;
+use App\Logger\ILogger;
 use App\Response\IResponse;
 use App\Router\IRouter;
 use DateTime;
@@ -33,19 +34,28 @@ final class MockServer
 
     /** @var string */
     private $responseType = 'Default';
+    /**
+     * @var ILogger
+     */
+    private $logger;
 
     /**
      * MockServer constructor.
      * @param IRouter $router
      * @param IResponse $response
+     * @param ILogger $logger
      */
     public function __construct(
         IRouter $router,
-        IResponse $response
+        IResponse $response,
+        ILogger $logger
     ) {
+
         $this->router = $router;
         $this->config = $response->getConfig();
         $this->response = $response;
+        $this->logger = $logger;
+
         $this->startServer();
     }
 
@@ -159,24 +169,31 @@ final class MockServer
             $bl . str_repeat($h, 35)  . $br . "\n";
     }
 
+    /**
+     * Logs the HTTP request of logging is enabled in the configuration
+     * @param Request $request
+     */
     private function logRequest(Request $request)
     {
-        if ($this->getConfig()->getLogging()) {
-            $now = (new DateTime())->format('H:i:s');
-            printf(
-                "# Request at (%s): %s %s\n",
-                $now,
-                $request->server['request_method'],
-                $request->server['path_info']
-            );
+        if ($this->getConfig()->isLoggingEnabled()) {
+            $this->getLogger()->setRequest($request);
+            $this->getLogger()->logRequest();
         }
     }
 
     /**
      * @return IRouter
      */
-    private function getRouter(): IRouter
+    public function getRouter(): IRouter
     {
         return $this->router;
+    }
+
+    /**
+     * @return ILogger
+     */
+    public function getLogger(): ILogger
+    {
+        return $this->logger;
     }
 }

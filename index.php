@@ -3,6 +3,7 @@
 require_once __DIR__.DIRECTORY_SEPARATOR.
     'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
+use App\Logger\Logger;
 use App\MockServer\MockServer;
 use App\Config\Config;
 use App\Response\Response;
@@ -18,6 +19,7 @@ $config = new Config(
 
 $server = new MockServer(
     new Router(),
-    new Response($config)
+    new Response($config),
+    new Logger()
 );
 $server->listen();

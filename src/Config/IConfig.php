@@ -12,5 +12,5 @@ interface IConfig
     public function getConfigFilePath(): string;
     public function getConfigParser(): ConfigParser;
     public function getPrefix(): string;
-    public function getLogging(): bool;
+    public function isLoggingEnabled(): bool;
 }
