@@ -97,7 +97,7 @@ final class MockServer
         $this->getServer()->on(
             'start',
             function () {
-                printf('[0;32;m%s', Helpers::bootMessage($this));
+                printf('%s', Helpers::bootMessage($this));
             }
         );
     }
@@ -125,7 +125,10 @@ final class MockServer
                 $this->getMockServerResponse()->setResponseType(
                     $this->responseType
                 );
-                $this->getMockServerResponse()->sendResponse($response);
+                $this->getMockServerResponse()->sendResponse(
+                    $response,
+                    $this->getLogger()
+                );
                 $this->logRequest($request);
             }
         );

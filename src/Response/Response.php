@@ -3,6 +3,7 @@ namespace App\Response;
 
 use App\Config\ConfigValidator;
 use App\Config\IConfig;
+use App\Logger\ILogger;
 use Swoole\Http\Response as SwooleResponse;
 
 /**
@@ -31,6 +32,9 @@ final class Response implements IResponse
     /** @var string */
     private $responseType;
 
+    /** @var string */
+    private $responseData;
+
     /**
      * Response constructor.
      * @param IConfig $config
@@ -43,16 +47,21 @@ final class Response implements IResponse
     /**
      * Send back a response to the Client
      * @param SwooleResponse $response
+     * @param ILogger $logger
      */
-    public function sendResponse(SwooleResponse $response): void
+    public function sendResponse(SwooleResponse $response, ILogger $logger): void
     {
         $this->prepareHeaders($response);
         $this->setStatusCode($response);
-        $response->end(
+        $this->setResponseData(
             $this->getConfig()
                 ->getConfigParser()
                 ->getModelResponse($this)
         );
+        $response->end($this->getResponseData());
+        if ($this->getConfig()->isLoggingEnabled()) {
+            $logger->setResponse($this);
+        }
     }
 
     /**
@@ -141,5 +150,21 @@ final class Response implements IResponse
     public function getConfig(): IConfig
     {
         return $this->config;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponseData(): string
+    {
+        return $this->responseData;
+    }
+
+    /**
+     * @param string $responseData
+     */
+    public function setResponseData(string $responseData): void
+    {
+        $this->responseData = $responseData;
     }
 }

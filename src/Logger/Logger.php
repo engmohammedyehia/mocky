@@ -1,6 +1,7 @@
 <?php
 namespace App\Logger;
 
+use App\Response\Response;
 use DateTime;
 use Swoole\Http\Request;
 
@@ -13,18 +14,34 @@ class Logger implements ILogger
     /** @var Request */
     private $request;
 
+    /** @var Response */
+    private $response;
+
     /** @inheritDoc */
     public function logRequest(): void
     {
         $now = (new DateTime())->format('H:i:s');
+        $requestAt = LoggerFormatter::colorizeString(
+            " → Request details ",
+            Colors::CONSOLE_FOREGROUND_COLOR_BLACK,
+            Colors::CONSOLE_BACKGROUND_COLOR_YELLOW
+        );
+        $responseAt = LoggerFormatter::colorizeString(
+            " ← Response details ",
+            Colors::CONSOLE_FOREGROUND_COLOR_BLACK,
+            Colors::CONSOLE_BACKGROUND_COLOR_GREEN
+        );;
         printf(
-            "# Request at (%s):\n\nProtocol: %s\nMethod: %s\nEndpoint: %s\nQuery String: %s\nBody:\n%s\n\n==================\n\n",
+            "%s\n\nRequested at: %s\nProtocol: %s\nMethod: %s\nEndpoint: %s\nQuery String: %s\nBody:\n%s\n\n%s\n\nBody:\n%s\n\n\n\n",
+            $requestAt,
             $now,
             $this->getRequest()->server['server_protocol'],
             $this->getRequest()->server['request_method'],
             $this->getRequest()->server['path_info'],
             $this->getRequest()->server['query_string'] ?? 'null',
-            preg_replace("/\t/i", "", $this->getRequest()->rawContent())
+            LoggerFormatter::formatJsonString($this->getRequest()->rawContent()),
+            $responseAt,
+            LoggerFormatter::formatJsonString($this->getResponse()->getResponseData())
         );
     }
 
@@ -42,5 +59,21 @@ class Logger implements ILogger
     public function setRequest(Request $request): void
     {
         $this->request = $request;
+    }
+
+    /**
+     * @return Response
+     */
+    public function getResponse(): Response
+    {
+        return $this->response;
+    }
+
+    /**
+     * @param Response $response
+     */
+    public function setResponse(Response $response): void
+    {
+        $this->response = $response;
     }
 }
