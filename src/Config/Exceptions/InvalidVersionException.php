@@ -2,6 +2,7 @@
 namespace App\Config\Exceptions;
 
 use Exception;
+use Throwable;
 
 /**
  * Class InvalidVersionException
@@ -9,5 +10,11 @@ use Exception;
  */
 class InvalidVersionException extends Exception
 {
-    protected $message = 'PHP version is in-compatible with the Server';
+    public function __construct(
+        $message = "'PHP version is in-compatible with the Server'",
+        $code = 0,
+        Throwable $previous = null
+    ) {
+        parent::__construct($message, $code, $previous);
+    }
 }

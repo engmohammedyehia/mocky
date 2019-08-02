@@ -34,8 +34,10 @@ class ConfigParserTest extends TestCase
             '0.0.0.0',
             9501,
             __DIR__.'/mock.config.yaml',
-            '',
-            1
+            [
+                'prefix' => '',
+                'logging' => 1
+            ]
         );
         $this->response = new Response($this->config);
         parent::setUp();

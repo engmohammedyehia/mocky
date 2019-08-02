@@ -2,6 +2,7 @@
 namespace App\Config\Exceptions;
 
 use Exception;
+use Throwable;
 
 /**
  * Class InvalidVersionException
@@ -9,5 +10,11 @@ use Exception;
  */
 class MissingExtensionException extends Exception
 {
-    protected $message = 'Swoole Extension is required for the Server to run';
+    public function __construct(
+        $message = "Swoole Extension is required for the Server to run",
+        $code = 0,
+        Throwable $previous = null
+    ) {
+        parent::__construct($message, $code, $previous);
+    }
 }
