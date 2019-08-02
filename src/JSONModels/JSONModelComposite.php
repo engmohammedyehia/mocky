@@ -11,9 +11,9 @@ class JSONModelComposite extends AbstractJSONModel
     /**
      * JSONModelComposite constructor.
      * @param string|null $name
-     * @param array|null $data
+     * @param array $data
      */
-    public function __construct(?string $name, ?array $data = [])
+    public function __construct(?string $name = null, array $data = [])
     {
         $this->nodes = new SplObjectStorage();
         parent::__construct($name, $data);
@@ -42,6 +42,17 @@ class JSONModelComposite extends AbstractJSONModel
     {
         $this->nodes->attach($model);
         $this->setData($this->getData() + $model->render());
+    }
+
+    /**
+     * Extends the current data array
+     * @param AbstractJSONModel $model
+     */
+    public function extendData(AbstractJSONModel $model)
+    {
+        $currentData = $this->getData();
+        $currentData[] = $model->render();
+        $this->setData($currentData);
     }
 
     /**
