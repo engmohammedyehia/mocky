@@ -76,6 +76,7 @@ final class ConfigParser
         [$response->getEndPoint()]['responses']
         [$response->getResponseType()]['model'];
 
+        // TODO: This piece of code doesn't belong here apply SRP by moving it to Response Class
         /** @var IMockData $responseData */
         $responseData = new $model();
         return $responseData->buildResponse($response->getResponseType());
