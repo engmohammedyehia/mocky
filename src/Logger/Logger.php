@@ -30,18 +30,19 @@ class Logger implements ILogger
             " ← Response details ",
             Colors::CONSOLE_FOREGROUND_COLOR_BLACK,
             Colors::CONSOLE_BACKGROUND_COLOR_GREEN
-        );;
+        );
         printf(
-            "%s\n\nRequested at: %s\nProtocol: %s\nMethod: %s\nEndpoint: %s\nQuery String: %s\nBody:\n%s\n\n%s\n\nBody:\n%s\n\n\n\n",
+            "%s\n\nRequested at: %s\nProtocol: %s\nMethod: %s\nEndpoint: %s\nQuery String: %s\n\n%s\n\n%s\n\nStatus Code: %d\nBody:%s\n\n\n\n",
             $requestAt,
             $now,
             $this->getRequest()->server['server_protocol'],
             $this->getRequest()->server['request_method'],
             $this->getRequest()->server['path_info'],
             $this->getRequest()->server['query_string'] ?? 'null',
-            LoggerFormatter::formatJsonString($this->getRequest()->rawContent()),
+            $this->getRequest()->rawContent(),
             $responseAt,
-            LoggerFormatter::formatJsonString($this->getResponse()->getResponseData())
+            $this->getResponse()->getStatusCode(),
+            $this->getResponse()->getResponseData() === '' ? 'null' : "\n" . $this->getResponse()->getResponseData()
         );
     }
 

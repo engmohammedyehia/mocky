@@ -35,6 +35,9 @@ final class Response implements IResponse
     /** @var string */
     private $responseData;
 
+    /** @var int */
+    private $statusCode;
+
     /**
      * Response constructor.
      * @param IConfig $config
@@ -88,11 +91,11 @@ final class Response implements IResponse
      */
     private function setStatusCode(SwooleResponse $response)
     {
-        $response->status(
-            $this->getConfig()
-                ->getConfigParser()
-                ->extractStatusCode($this)
-        );
+        $statusCode = $this->getConfig()
+            ->getConfigParser()
+            ->extractStatusCode($this);
+        $response->status($statusCode);
+        $this->statusCode = $statusCode;
     }
 
     /**
@@ -166,5 +169,13 @@ final class Response implements IResponse
     public function setResponseData(string $responseData): void
     {
         $this->responseData = $responseData;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode(): int
+    {
+        return $this->statusCode;
     }
 }
