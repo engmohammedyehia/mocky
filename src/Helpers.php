@@ -12,12 +12,12 @@ final class Helpers
 {
     public static function bootMessage(MockServer $server)
     {
-        $tl = html_entity_decode('╔', ENT_NOQUOTES, 'UTF-8');
-        $tr = html_entity_decode('╗', ENT_NOQUOTES, 'UTF-8');
-        $bl = html_entity_decode('╚', ENT_NOQUOTES, 'UTF-8');
-        $br = html_entity_decode('╝', ENT_NOQUOTES, 'UTF-8');
-        $v = html_entity_decode('║', ENT_NOQUOTES, 'UTF-8');
-        $h = html_entity_decode('═', ENT_NOQUOTES, 'UTF-8');
+        $tl = html_entity_decode('┌', ENT_NOQUOTES, 'UTF-8');
+        $tr = html_entity_decode('┐', ENT_NOQUOTES, 'UTF-8');
+        $bl = html_entity_decode('└', ENT_NOQUOTES, 'UTF-8');
+        $br = html_entity_decode('┘', ENT_NOQUOTES, 'UTF-8');
+        $v = html_entity_decode('│', ENT_NOQUOTES, 'UTF-8');
+        $h = html_entity_decode('─', ENT_NOQUOTES, 'UTF-8');
 
         $messages = [
             'welcomeMessage' => $v . str_repeat(' ', 2) . 'Mock Server started at '.(new DateTime())->format('H:i:s'),
