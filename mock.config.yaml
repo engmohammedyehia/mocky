@@ -8,7 +8,7 @@ endpoints:
           - {Content-Type: json}
   GET/employees:
     responses:
-      Default:
+      default:
         model: App\MockData\Employee
         status: 200
         headers:
@@ -16,5 +16,12 @@ endpoints:
       UnAuthorized:
         model: App\MockData\Employee
         status: 401
+        headers:
+          - {Content-Type: json}
+  POST/employees:
+    responses:
+      Default:
+        model: App\MockData\Employee
+        status: 201
         headers:
           - {Content-Type: json}

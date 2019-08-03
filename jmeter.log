@@ -1,0 +1,333 @@
+2019-08-02 22:01:26,027 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2019-08-02 22:01:26,073 INFO o.a.j.JMeter: Loading user properties from: /usr/local/Cellar/jmeter/5.1.1/libexec/bin/user.properties
+2019-08-02 22:01:26,074 INFO o.a.j.JMeter: Loading system properties from: /usr/local/Cellar/jmeter/5.1.1/libexec/bin/system.properties
+2019-08-02 22:01:26,083 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2019-08-02 22:01:26,083 INFO o.a.j.JMeter: Version 5.1.1 r1855137
+2019-08-02 22:01:26,083 INFO o.a.j.JMeter: java.version=1.8.0_181
+2019-08-02 22:01:26,083 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2019-08-02 22:01:26,083 INFO o.a.j.JMeter: os.name=Mac OS X
+2019-08-02 22:01:26,083 INFO o.a.j.JMeter: os.arch=x86_64
+2019-08-02 22:01:26,083 INFO o.a.j.JMeter: os.version=10.14.5
+2019-08-02 22:01:26,083 INFO o.a.j.JMeter: file.encoding=UTF-8
+2019-08-02 22:01:26,084 INFO o.a.j.JMeter: java.awt.headless=null
+2019-08-02 22:01:26,084 INFO o.a.j.JMeter: Max memory     =1073741824
+2019-08-02 22:01:26,084 INFO o.a.j.JMeter: Available Processors =4
+2019-08-02 22:01:26,092 INFO o.a.j.JMeter: Default Locale=English (EN)
+2019-08-02 22:01:26,092 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2019-08-02 22:01:26,092 INFO o.a.j.JMeter: JMeterHome=/usr/local/Cellar/jmeter/5.1.1/libexec
+2019-08-02 22:01:26,092 INFO o.a.j.JMeter: user.dir  =/Users/fox/Documents/development/swoole
+2019-08-02 22:01:26,092 INFO o.a.j.JMeter: PWD       =/Users/fox/Documents/development/swoole
+2019-08-02 22:01:26,103 INFO o.a.j.JMeter: IP: 192.168.178.145 Name: fox.fritz.box FullName: fox.fritz.box
+2019-08-02 22:01:28,965 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
+2019-08-02 22:01:28,993 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
+2019-08-02 22:01:28,993 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
+2019-08-02 22:01:29,121 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2019-08-02 22:01:31,336 INFO k.a.j.JMeterPluginsUtils: JMeter-Plugins.org v.1.4.0
+2019-08-02 22:01:32,188 WARN o.a.j.g.u.MenuFactory: Could not instantiate class: kg.apc.jmeter.reporters.LoadosophiaUploaderGui
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_181]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_181]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_181]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_181]
+	at org.apache.jmeter.gui.util.MenuFactory.getGUIComponent(MenuFactory.java:174) ~[ApacheJMeter_core.jar:5.1.1 r1855137]
+	at org.apache.jmeter.gui.util.MenuFactory.initializeMenus(MenuFactory.java:141) ~[ApacheJMeter_core.jar:5.1.1 r1855137]
+	at org.apache.jmeter.gui.util.MenuFactory.<clinit>(MenuFactory.java:106) ~[ApacheJMeter_core.jar:5.1.1 r1855137]
+	at org.apache.jmeter.control.gui.TestPlanGui.createPopupMenu(TestPlanGui.java:92) ~[ApacheJMeter_core.jar:5.1.1 r1855137]
+	at org.apache.jmeter.gui.tree.JMeterTreeNode.createPopupMenu(JMeterTreeNode.java:185) ~[ApacheJMeter_core.jar:5.1.1 r1855137]
+	at org.apache.jmeter.gui.action.EditCommand.doAction(EditCommand.java:46) ~[ApacheJMeter_core.jar:5.1.1 r1855137]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:88) ~[ApacheJMeter_core.jar:5.1.1 r1855137]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:70) ~[ApacheJMeter_core.jar:5.1.1 r1855137]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311) [?:1.8.0_181]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758) [?:1.8.0_181]
+	at java.awt.EventQueue.access$500(EventQueue.java:97) [?:1.8.0_181]
+	at java.awt.EventQueue$3.run(EventQueue.java:709) [?:1.8.0_181]
+	at java.awt.EventQueue$3.run(EventQueue.java:703) [?:1.8.0_181]
+	at java.security.AccessController.doPrivileged(Native Method) [?:1.8.0_181]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74) [?:1.8.0_181]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728) [?:1.8.0_181]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205) [?:1.8.0_181]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116) [?:1.8.0_181]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105) [?:1.8.0_181]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:1.8.0_181]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93) [?:1.8.0_181]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82) [?:1.8.0_181]
+Caused by: java.lang.NoClassDefFoundError: org/apache/commons/httpclient/methods/multipart/PartSource
+	at kg.apc.jmeter.reporters.LoadosophiaUploaderGui.init(LoadosophiaUploaderGui.java:114) ~[JMeterPlugins-Standard.jar:?]
+	at kg.apc.jmeter.reporters.LoadosophiaUploaderGui.<init>(LoadosophiaUploaderGui.java:28) ~[JMeterPlugins-Standard.jar:?]
+	... 26 more
+Caused by: java.lang.ClassNotFoundException: org.apache.commons.httpclient.methods.multipart.PartSource
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[?:1.8.0_181]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[?:1.8.0_181]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[?:1.8.0_181]
+	at kg.apc.jmeter.reporters.LoadosophiaUploaderGui.init(LoadosophiaUploaderGui.java:114) ~[JMeterPlugins-Standard.jar:?]
+	at kg.apc.jmeter.reporters.LoadosophiaUploaderGui.<init>(LoadosophiaUploaderGui.java:28) ~[JMeterPlugins-Standard.jar:?]
+	... 26 more
+2019-08-02 22:01:33,430 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-08-02 22:01:33,431 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-08-02 22:01:33,431 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-08-02 22:01:33,431 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-08-02 22:01:33,431 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2019-08-02 22:01:33,431 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2019-08-02 22:01:33,872 INFO o.a.j.e.KeyToolUtils: keytool found at 'keytool'
+2019-08-02 22:01:33,873 INFO o.a.j.p.h.p.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /usr/local/Cellar/jmeter/5.1.1/libexec/bin/proxyserver.jks
+2019-08-02 22:01:34,061 INFO o.a.j.s.FileServer: Default base='/Users/fox/Documents/development/swoole'
+2019-08-02 22:01:34,531 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2019-08-02 22:01:34,531 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2019-08-02 22:01:34,531 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2019-08-02 22:01:34,531 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2019-08-02 22:04:37,576 INFO o.a.j.s.FileServer: Set new base='/Users/fox/Desktop'
+2019-08-02 22:04:37,836 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2019-08-02 22:04:37,867 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2019-08-02 22:04:37,871 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2019-08-02 22:04:37,912 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-02 22:04:37,915 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-02 22:04:37,916 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-02 22:04:37,920 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2019-08-02 22:04:37,920 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2019-08-02 22:04:38,411 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-02 22:04:38,611 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-02 22:04:38,611 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-02 22:04:38,611 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-02 22:04:38,611 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-02 22:04:38,613 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-02 22:04:38,614 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-02 22:04:38,618 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-02 22:04:38,640 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = fox.fritz.box
+2019-08-02 22:04:38,649 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2019-08-02 22:04:38,902 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2019-08-02 22:04:38,903 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2019-08-02 22:04:39,120 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-02 22:04:39,615 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-02 22:04:48,135 INFO o.a.j.g.a.Start: Shutting test down
+2019-08-02 22:04:48,160 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-1
+2019-08-02 22:04:48,160 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-2
+2019-08-02 22:04:48,161 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-3
+2019-08-02 22:04:48,167 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-02 22:04:48,168 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-02 22:04:48,168 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-02 22:04:48,169 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-02 22:04:48,170 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-02 22:06:04,636 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-02 22:06:04,640 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-02 22:06:04,646 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-02 22:06:05,255 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-02 22:06:05,256 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-02 22:06:05,256 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-02 22:06:05,256 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-02 22:06:05,256 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-02 22:06:05,256 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-02 22:06:05,265 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-02 22:06:05,761 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-02 22:06:06,262 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-02 22:06:12,276 INFO o.a.j.g.a.Start: Stopping test
+2019-08-02 22:06:12,301 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-3
+2019-08-02 22:06:12,302 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-3 sampler: HTTP Request
+2019-08-02 22:06:12,304 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-1
+2019-08-02 22:06:12,304 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-1 sampler: HTTP Request
+2019-08-02 22:06:12,305 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-2
+2019-08-02 22:06:12,306 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-2 sampler: HTTP Request
+2019-08-02 22:06:12,309 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-02 22:06:12,309 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-02 22:06:12,309 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-02 22:06:12,312 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-02 22:06:12,312 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-02 22:07:17,069 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-02 22:07:17,070 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-02 22:07:17,071 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-02 22:07:17,248 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-02 22:07:17,248 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-02 22:07:17,248 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-02 22:07:17,249 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-02 22:07:17,249 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-02 22:07:17,249 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-02 22:07:17,250 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-02 22:07:17,414 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-02 22:07:17,414 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-02 22:07:17,756 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-02 22:07:17,813 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-02 22:07:17,814 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-02 22:07:18,254 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-02 22:07:18,306 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-02 22:07:18,306 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-02 22:07:18,307 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-02 22:07:18,308 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 07:42:19,252 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 07:42:19,256 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 07:42:19,260 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 07:42:19,760 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 07:42:19,760 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 07:42:19,760 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 07:42:19,760 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 07:42:19,760 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 07:42:19,760 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 07:42:19,763 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 07:42:19,887 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 07:42:19,887 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 07:42:20,265 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 07:42:20,315 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 07:42:20,315 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 07:42:20,763 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 07:42:20,810 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 07:42:20,810 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 07:42:20,811 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 07:42:20,811 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 08:13:24,554 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 08:13:24,558 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 08:13:24,560 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 08:13:25,067 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 08:13:25,067 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 08:13:25,067 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 08:13:25,068 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 08:13:25,069 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 08:13:25,069 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 08:13:25,075 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 08:13:25,288 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 08:13:25,321 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 08:13:25,577 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 08:13:25,672 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 08:13:25,672 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 08:13:26,078 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 08:13:26,166 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 08:13:26,167 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 08:13:26,167 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 08:13:26,167 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 08:13:34,566 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 08:13:34,567 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 08:13:34,568 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 08:13:34,728 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 08:13:34,728 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 08:13:34,728 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 08:13:34,728 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 08:13:34,729 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 08:13:34,730 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 08:13:34,730 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 08:13:34,796 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 08:13:34,796 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 08:13:35,234 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 08:13:35,294 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 08:13:35,294 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 08:13:35,737 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 08:13:35,798 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 08:13:35,798 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 08:13:35,798 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 08:13:35,799 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 08:13:59,530 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 08:13:59,531 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 08:13:59,534 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 08:13:59,679 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 08:13:59,679 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 08:13:59,679 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 08:13:59,680 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 08:13:59,680 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 08:13:59,680 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 08:13:59,682 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 08:13:59,868 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 08:13:59,868 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 08:14:00,186 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 08:14:00,242 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 08:14:00,243 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 08:14:00,684 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 08:14:00,768 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 08:14:00,768 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 08:14:00,769 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 08:14:00,769 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 08:15:24,862 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 08:15:24,863 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 08:15:24,865 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 08:15:25,034 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 08:15:25,034 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 08:15:25,034 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 08:15:25,034 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 08:15:25,035 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 08:15:25,035 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 08:15:25,037 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 08:15:25,146 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 08:15:25,147 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 08:15:25,543 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 08:15:25,614 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 08:15:25,614 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 08:15:26,039 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 08:15:26,103 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 08:15:26,104 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 08:15:26,105 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 08:15:26,105 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 08:15:55,810 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 08:15:55,811 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 08:15:55,812 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 08:15:55,963 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 08:15:55,964 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 08:15:55,964 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 08:15:55,964 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 08:15:55,964 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 08:15:55,964 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 08:15:55,965 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 08:15:56,060 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 08:15:56,060 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 08:15:56,469 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 08:15:56,542 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 08:15:56,542 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 08:15:56,965 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 08:15:57,039 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 08:15:57,039 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 08:15:57,040 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 08:15:57,040 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 08:16:28,087 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 08:16:28,088 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 08:16:28,088 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 08:16:28,249 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 08:16:28,249 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 08:16:28,249 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 08:16:28,250 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 08:16:28,250 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 08:16:28,251 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 08:16:28,253 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 08:16:28,330 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 08:16:28,330 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 08:16:28,755 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 08:16:28,815 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 08:16:28,815 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 08:16:29,257 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 08:16:29,318 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 08:16:29,318 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 08:16:29,318 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 08:16:29,318 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 08:17:04,392 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 08:17:04,393 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 08:17:04,394 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 08:17:04,557 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 08:17:04,557 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 08:17:04,557 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 08:17:04,557 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 08:17:04,558 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 08:17:04,558 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 08:17:04,559 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 08:17:04,666 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 08:17:04,666 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 08:17:05,062 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 08:17:05,140 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 08:17:05,140 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 08:17:05,561 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 08:17:05,623 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 08:17:05,623 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 08:17:05,623 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 08:17:05,624 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2019-08-03 08:17:25,499 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-08-03 08:17:25,499 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-08-03 08:17:25,500 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2019-08-03 08:17:25,657 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-08-03 08:17:25,657 INFO o.a.j.e.StandardJMeterEngine: Starting 3 threads for group Thread Group.
+2019-08-03 08:17:25,657 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-08-03 08:17:25,657 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=3 ramp-up=1 delayedStart=true
+2019-08-03 08:17:25,658 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-08-03 08:17:25,658 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-08-03 08:17:25,662 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-08-03 08:17:25,743 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-08-03 08:17:25,744 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-08-03 08:17:26,165 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2019-08-03 08:17:26,240 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2019-08-03 08:17:26,240 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2019-08-03 08:17:26,660 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2019-08-03 08:17:26,716 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2019-08-03 08:17:26,716 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2019-08-03 08:17:26,717 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-08-03 08:17:26,717 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
