@@ -25,3 +25,11 @@ endpoints:
         status: 201
         headers:
           - {Content-Type: json}
+schemas:
+  employee:
+    type: object
+    properties:
+      name: name
+      age: int
+      address: address
+      company: name

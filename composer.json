@@ -21,7 +21,8 @@
   "require": {
     "ext-json": "*",
     "symfony/yaml": "^4.3",
-    "ext-mbstring": "*"
+    "ext-mbstring": "*",
+    "fzaninotto/faker": "^1.8"
   },
   "require-dev": {
     "eaglewu/swoole-ide-helper": "dev-master",
