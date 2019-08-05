@@ -1,7 +1,7 @@
 <?php
 namespace App\Logger;
 
-use App\Response\Response;
+use App\Response\IResponse;
 use Swoole\Http\Request;
 
 /**
@@ -24,7 +24,7 @@ interface ILogger
 
     /**
      * Sets the Response Object to pass information to the logger
-     * @param Response $response
+     * @param IResponse $response
      */
-    public function setResponse(Response $response): void;
+    public function setResponse(IResponse $response): void;
 }

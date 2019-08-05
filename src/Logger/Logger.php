@@ -1,7 +1,7 @@
 <?php
 namespace App\Logger;
 
-use App\Response\Response;
+use App\Response\IResponse;
 use DateTime;
 use Swoole\Http\Request;
 
@@ -14,7 +14,7 @@ class Logger implements ILogger
     /** @var Request */
     private $request;
 
-    /** @var Response */
+    /** @var IResponse */
     private $response;
 
     /** @inheritDoc */
@@ -63,17 +63,17 @@ class Logger implements ILogger
     }
 
     /**
-     * @return Response
+     * @return IResponse
      */
-    public function getResponse(): Response
+    public function getResponse(): IResponse
     {
         return $this->response;
     }
 
     /**
-     * @param Response $response
+     * @param IResponse $response
      */
-    public function setResponse(Response $response): void
+    public function setResponse(IResponse $response): void
     {
         $this->response = $response;
     }

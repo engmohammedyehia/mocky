@@ -50,9 +50,9 @@ final class Response implements IResponse
     /**
      * Send back a response to the Client
      * @param SwooleResponse $response
-     * @param ILogger $logger
+     * @return IResponse
      */
-    public function sendResponse(SwooleResponse $response, ILogger $logger): void
+    public function buildResponse(SwooleResponse $response): IResponse
     {
         $this->prepareHeaders($response);
         $this->setStatusCode($response);
@@ -61,10 +61,7 @@ final class Response implements IResponse
                 ->getConfigParser()
                 ->getModelResponse($this)
         );
-        $response->end($this->getResponseData());
-        if ($this->getConfig()->isLoggingEnabled()) {
-            $logger->setResponse($this);
-        }
+        return $this;
     }
 
     /**

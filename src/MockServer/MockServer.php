@@ -121,14 +121,17 @@ final class MockServer
                 $this->getMockServerResponse()->setEndPoint(
                     $this->getRouter()->getEndPoint($request)
                 );
+
                 $this->getMockServerResponse()->setResponseType(
                     $this->responseType
                 );
-                $this->getMockServerResponse()->sendResponse(
-                    $response,
-                    $this->getLogger()
-                );
-                $this->logRequest($request);
+
+                $responseObject = $this->getMockServerResponse()
+                    ->buildResponse($response);
+
+                $response->end($responseObject->getResponseData());
+
+                $this->log($request, $responseObject);
             }
         );
     }
@@ -144,11 +147,13 @@ final class MockServer
     /**
      * Logs the HTTP request of logging is enabled in the configuration
      * @param Request $request
+     * @param IResponse $responseObject
      */
-    private function logRequest(Request $request)
+    private function log(Request $request, IResponse $responseObject)
     {
         if ($this->getConfig()->isLoggingEnabled()) {
             $this->getLogger()->setRequest($request);
+            $this->getLogger()->setResponse($responseObject);
             $this->getLogger()->logRequest();
         }
     }
