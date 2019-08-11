@@ -5,7 +5,7 @@ pipeline {
         stage('PHPUnit Testing') {
             steps {
                 echo 'Testing.....'
-                php ./vendor/bin/phpunit -v --colors=always ./tests
+                sh 'php ./vendor/bin/phpunit -v --colors=always ./tests'
             }
         }
     }
