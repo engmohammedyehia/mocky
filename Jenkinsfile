@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker { 
             image 'firefoxegy/php7.2_nginx_xdebug_swoole:latest' 
+            args '-e COMPOSER_ALLOW_SUPERUSER=1'
         }
     }
 
