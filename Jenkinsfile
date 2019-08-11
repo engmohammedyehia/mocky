@@ -18,4 +18,10 @@ pipeline {
             }
         }
     }
+
+    post { 
+        success { 
+            echo 'Everything went fine :)'
+        }
+    }
 }
