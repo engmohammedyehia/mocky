@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'firefoxegy/php7.2_nginx_xdebug_swoole:latest' }
+        docker { 
+            image 'firefoxegy/php7.2_nginx_xdebug_swoole:latest' 
+            args '-v $HOME/workspace/mockserver_master:/home/workspace/mockserver_master'
+        }
     }
 
     stages {
