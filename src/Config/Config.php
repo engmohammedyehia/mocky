@@ -45,7 +45,7 @@ final class Config implements IConfig
         string $ipAddress,
         int $portNumber,
         string $configFilePath,
-        array $options = []
+        array $options
     ) {
         $this->ipAddress = $ipAddress;
         $this->portNumber = $portNumber;
@@ -147,7 +147,7 @@ final class Config implements IConfig
      */
     public function isLoggingEnabled(): bool
     {
-        return $this->logging;
+        return (bool) $this->getOptions()['logging'];
     }
 
     /**
@@ -164,5 +164,14 @@ final class Config implements IConfig
     public function getOptions(): array
     {
         return $this->options;
+    }
+
+    /**
+     * Return a list of enabled loggers if logging is enabled
+     * @return array
+     */
+    public function getRequestedLoggers(): array
+    {
+        return explode(',', $this->getOptions()['logging']);
     }
 }

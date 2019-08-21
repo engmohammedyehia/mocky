@@ -3,9 +3,13 @@ namespace App\MockServer;
 
 use App\Config\IConfig;
 use App\Helpers;
+use App\Logger\decorators\RequestLoggerDecorator;
+use App\Logger\decorators\ResponseLoggerDecorator;
 use App\Logger\ILogger;
+use App\Logger\LoggersEnum;
 use App\Response\IResponse;
 use App\Router\IRouter;
+use Exception;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
 use Swoole\Http\Server;
@@ -148,13 +152,19 @@ final class MockServer
      * Logs the HTTP request of logging is enabled in the configuration
      * @param Request $request
      * @param IResponse $responseObject
+     * @throws Exception
      */
     private function log(Request $request, IResponse $responseObject)
     {
         if ($this->getConfig()->isLoggingEnabled()) {
-            $this->getLogger()->setRequest($request);
-            $this->getLogger()->setResponse($responseObject);
-            $this->getLogger()->logRequest();
+            $logger = $this->getLogger();
+            if (in_array(LoggersEnum::LOGGER_REQUEST, $this->getConfig()->getRequestedLoggers())) {
+                $logger = new RequestLoggerDecorator($logger, $request);
+            }
+            if (in_array(LoggersEnum::LOGGER_RESPONSE, $this->getConfig()->getRequestedLoggers())) {
+                $logger = new ResponseLoggerDecorator($logger, $responseObject);
+            }
+            $logger->log();
         }
     }
 
