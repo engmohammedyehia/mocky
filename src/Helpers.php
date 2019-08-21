@@ -24,7 +24,8 @@ final class Helpers
             'serverVersion' => $v . str_repeat(' ', 2) . 'Server Version: '.$server->getVersion(),
             'ipAddress' => $v . str_repeat(' ', 2) . 'Server IP Address: '.$server->getServer()->host,
             'portNumber' => $v . str_repeat(' ', 2) . 'Port Number: '.$server->getServer()->port,
-            'serverURL' => $v . str_repeat(' ', 2) . 'Server URL: http://'.$server->getServer()->host.':'.$server->getServer()->port,
+            'serverURL' => $v . str_repeat(' ', 2) .
+            'Server URL: http://'.$server->getServer()->host.':'.$server->getServer()->port,
             'footerMessage' => $v . str_repeat(' ', 2) . 'Enjoy ;)'
         ];
 
@@ -34,7 +35,7 @@ final class Helpers
             array_values($messages),
             function ($accumulator, $currentValue) {
                 $length = mb_strlen($currentValue);
-                if($length > $accumulator) {
+                if ($length > $accumulator) {
                     $accumulator = $length;
                 }
                 return $accumulator;

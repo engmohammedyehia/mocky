@@ -11,8 +11,8 @@ class Colors
      * Foreground Colors
      */
     const CONSOLE_FOREGROUND_COLOR_BLACK = '0;30';
-    const CONSOLE_FOREGROUND_COLOR_Blue = '0;34';
-    const CONSOLE_FOREGROUND_COLOR_Green = '0;32';
+    const CONSOLE_FOREGROUND_COLOR_BLUE = '0;34';
+    const CONSOLE_FOREGROUND_COLOR_GREEN = '0;32';
     const CONSOLE_FOREGROUND_COLOR_CYAN = '0;36';
     const CONSOLE_FOREGROUND_COLOR_RED = '0;31';
     const CONSOLE_FOREGROUND_COLOR_PURPLE = '0;35';
