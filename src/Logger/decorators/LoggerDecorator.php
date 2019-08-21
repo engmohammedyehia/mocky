@@ -1,11 +1,11 @@
 <?php
-namespace App\Logger\decorators;
+namespace App\Logger\Decorators;
 
 use App\Logger\ILogger;
 
 /**
  * Class LoggerDecorator
- * @package App\Logger\decorators
+ * @package App\Logger\Decorators
  */
 class LoggerDecorator implements ILogger
 {

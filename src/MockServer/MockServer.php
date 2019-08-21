@@ -3,8 +3,8 @@ namespace App\MockServer;
 
 use App\Config\IConfig;
 use App\Helpers;
-use App\Logger\decorators\RequestLoggerDecorator;
-use App\Logger\decorators\ResponseLoggerDecorator;
+use App\Logger\Decorators\RequestLoggerDecorator;
+use App\Logger\Decorators\ResponseLoggerDecorator;
 use App\Logger\ILogger;
 use App\Logger\LoggersEnum;
 use App\Response\IResponse;

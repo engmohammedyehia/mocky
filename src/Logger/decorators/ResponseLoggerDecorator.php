@@ -1,5 +1,5 @@
 <?php
-namespace App\Logger\decorators;
+namespace App\Logger\Decorators;
 
 use App\Logger\ILogger;
 use App\Logger\Formatter\Colors;
@@ -9,7 +9,7 @@ use Exception;
 
 /**
  * Class RequestLoggerDecorator
- * @package App\Logger\decorators
+ * @package App\Logger\Decorators
  */
 class ResponseLoggerDecorator extends LoggerDecorator
 {
