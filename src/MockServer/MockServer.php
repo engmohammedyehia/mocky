@@ -7,6 +7,8 @@ use App\Logger\Decorators\RequestLoggerDecorator;
 use App\Logger\Decorators\ResponseLoggerDecorator;
 use App\Logger\ILogger;
 use App\Logger\LoggersEnum;
+use App\MockServer\Exceptions\InvalidVersionException;
+use App\MockServer\Exceptions\MissingExtensionException;
 use App\Response\IResponse;
 use App\Router\IRouter;
 use Exception;
@@ -48,6 +50,8 @@ final class MockServer
      * @param IRouter $router
      * @param IResponse $response
      * @param ILogger $logger
+     * @throws InvalidVersionException
+     * @throws MissingExtensionException
      */
     public function __construct(
         IRouter $router,
@@ -55,12 +59,29 @@ final class MockServer
         ILogger $logger
     ) {
 
+        $this->bootStrapCheck();
+
         $this->router = $router;
         $this->config = $response->getConfig();
         $this->response = $response;
         $this->logger = $logger;
 
         $this->startServer();
+    }
+
+    /**
+     * @throws InvalidVersionException
+     * @throws MissingExtensionException
+     */
+    private function bootStrapCheck()
+    {
+        if (version_compare(phpversion(), '7.2.0', '<')) {
+            throw new InvalidVersionException();
+        }
+
+        if (!extension_loaded('swoole')) {
+            throw new MissingExtensionException();
+        }
     }
 
     /**

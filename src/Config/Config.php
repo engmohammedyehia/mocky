@@ -53,7 +53,6 @@ final class Config implements IConfig
         $this->options = $options;
 
         try {
-            $this->bootStrapCheck();
             $this->validateConfig();
             $this->createConfigParser();
             $this->buildExtraConfiguration();
@@ -62,31 +61,6 @@ final class Config implements IConfig
                 'Invalid configuration: %s',
                 $e->getMessage()
             );
-        } catch (InvalidVersionException $e) {
-            sprintf(
-                'Wrong PHP version: %s',
-                $e->getMessage()
-            );
-        } catch (MissingExtensionException $e) {
-            sprintf(
-                'Extension is missing: %s',
-                $e->getMessage()
-            );
-        }
-    }
-
-    /**
-     * @throws InvalidVersionException
-     * @throws MissingExtensionException
-     */
-    private function bootStrapCheck()
-    {
-        if (version_compare(phpversion(), '7.2.0', '<')) {
-            throw new InvalidVersionException();
-        }
-
-        if (!extension_loaded('swoole')) {
-            throw new MissingExtensionException();
         }
     }
 

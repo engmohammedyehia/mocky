@@ -1,12 +1,12 @@
 <?php
-namespace App\Config\Exceptions;
+namespace App\MockServer\Exceptions;
 
 use Exception;
 use Throwable;
 
 /**
  * Class InvalidVersionException
- * @package App\Config\Exceptions
+ * @package App\MockServer\Exceptions
  */
 class InvalidVersionException extends Exception
 {

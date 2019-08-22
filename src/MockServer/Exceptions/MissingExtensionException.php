@@ -1,12 +1,12 @@
 <?php
-namespace App\Config\Exceptions;
+namespace App\MockServer\Exceptions;
 
 use Exception;
 use Throwable;
 
 /**
- * Class InvalidVersionException
- * @package App\Config\Exceptions
+ * Class MissingExtensionException
+ * @package App\MockServer\Exceptions
  */
 class MissingExtensionException extends Exception
 {
