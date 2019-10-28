@@ -2,6 +2,7 @@
   "name": "firefoxegy/mock-server",
   "description": "A PHP implemenation of a Mock Server using Swoole",
   "type": "library",
+  "license": "proprietary",
   "authors": [
     {
       "name": "Mohammed Yehia",

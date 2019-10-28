@@ -14,6 +14,7 @@ services:
       - php
       - index.php
     environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
       - MOCK_CONFIG_FILE=/home/endpoints.yaml
       - MOCK_SERVER_IP=0.0.0.0
       - MOCK_SERVER_PORT=9501
