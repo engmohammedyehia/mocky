@@ -29,7 +29,12 @@ schemas:
   employee:
     type: object
     properties:
-      name: name
-      age: int
-      address: address
-      company: name
+      name:
+        type: name
+      age:
+        type: int
+        between: [18,50]
+      address:
+        type: address
+      company:
+        type: name
