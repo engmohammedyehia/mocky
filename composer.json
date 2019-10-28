@@ -30,5 +30,8 @@
     "phpunit/phpunit": "^8.2.5",
     "squizlabs/php_codesniffer": "^3.4",
     "dg/bypass-finals": "^1.1"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }
