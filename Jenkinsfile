@@ -4,14 +4,6 @@ pipeline {
         ACCEPTANCE_TESTING_CONTAINER = ""
     }
     stages {
-        stage('Checkout') {
-            agent any
-            steps {
-                cleanWs()
-                sh 'rm -rf ./vendor'
-                git url: 'https://github.com/engmohammedyehia/mocky.git'
-            }
-        }
         stage('Install Dependencies') {
             agent {
                 docker { 
