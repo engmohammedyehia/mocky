@@ -1,0 +1,17 @@
+.github
+.git
+.idea
+tests
+_config.yml
+.editorconfig
+.gitignore
+.phpunit.result.cache
+Jenkinsfile
+Makefile
+phpcs.xml.dist
+phpunit.xml
+README.md
+composer.json
+composer.lock
+docker-compose.yaml
+.DS_Store
