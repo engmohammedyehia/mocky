@@ -38,7 +38,7 @@ pipeline {
             agent any
             steps {
                 sh 'docker build -t firefoxegy/mock .'
-                sh 'docker login --username firefoxegy --password rebo1531982'
+                sh 'docker login --username firefoxegy --password ******'
                 sh 'docker push firefoxegy/mock'
             }
         }
