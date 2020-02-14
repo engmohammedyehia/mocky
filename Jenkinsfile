@@ -42,7 +42,6 @@ pipeline {
             agent any
             steps {
                 sh 'docker run --name acceptance_test_container -d -e MOCK_CONFIG_FILE=/home/endpoints.yaml -e MOCK_SERVER_IP=0.0.0.0 -e MOCK_SERVER_PORT=9501 -e MOCK_SERVER_PREFIX="" -e MOCK_SERVER_LOGGING=1,2 -p 9501:9501 --name acceptance_test_container docker-registry:5000/mock'
-                sh 'curl -X POST http://acceptance_test_container:9501/employees'
             }
         }
     }
